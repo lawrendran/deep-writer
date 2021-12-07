@@ -30,7 +30,11 @@ class TextLoader():
         """
 
         # Let's not read voca and data from file. We many change them.
-        if True or not (os.path.exists(vocab_file) and os.path.exists(tensor_file)):
+        if (
+            True
+            or not os.path.exists(vocab_file)
+            or not os.path.exists(tensor_file)
+        ):
             print("reading text file")
             self.preprocess(input_file, vocab_file, tensor_file, encoding)
         else:
